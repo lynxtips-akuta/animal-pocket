@@ -1,0 +1,183 @@
+/* Blog Top add 2016.10.6 */
+
+/* Archive CSS Reset */
+.category-blog #content ul li {
+	border-bottom: none;
+}
+.category-blog #content ul li a {
+	display: inline;
+}
+.category-blog #content ul li .postdate {
+	font-size: 100%;
+	margin-top: 0px;
+}
+
+
+.category-blog #content ul.row {
+	padding: 0;
+	margin: 0;
+	list-style: none outside none;
+	margin-top: -20px;
+	overflow: hidden;
+	*zoom: 1;
+}
+.category-blog #content ul.row li {
+	float: left;
+	position: relative;
+	min-height: 1px;
+	margin: 20px 0 0 20px;
+	padding: 0;
+	width: 250px;
+	height: 250px;
+	background: #FFF;
+	overflow: hidden;
+}
+
+.category-blog #content ul.row li .more-link {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 250px;
+}
+.category-blog #content ul.row li .more-link a {
+	display: block;
+	width: 250px;
+	height: 250px;
+	text-indent: -119988px;
+	overflow: hidden;
+	text-align: left;
+	text-transform: capitalize;
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=60);
+	opacity: 0.6;
+}
+
+.category-blog #content ul.row li .thumbnail {
+	position: relative;
+	width: 240px;
+	height: 240px;
+	margin: 5px auto;
+	overflow: hidden;
+}
+.category-blog #content ul.row li .thumbnail img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: block;
+	max-width: none;
+}
+.category-blog #content ul.row li .thumbnail .more-link {
+	top: -5px;
+	left: -5px;
+}
+
+.category-blog #content ul.row li .caption {
+	position: absolute;
+	color: #FFF;
+	background-color: rgba(0, 0, 0, 0.5);
+	top: 0;
+	left: 0;
+	width: 250px;
+	height: 250px;
+	line-height: 1.4;
+	overflow: hidden;
+}
+.category-blog #content ul.row li .caption a {
+	text-decoration: none;
+	color: #FFF;
+}
+.category-blog #content ul.row li .caption .entry-header {
+	padding: 0.8em;
+	margin: 0;
+}
+.category-blog #content ul.row li .caption .entry-header .entry-title {
+	font-size: 1.6rem;
+	color: #FFF;
+	font-weight: normal;
+	border-bottom: none;
+	padding: 0;
+}
+.category-blog #content ul.row li .caption .entry-header .entry-title a {
+	color: #FFF;
+}
+
+.category-blog #content ul.row li .caption .entry-meta {
+	padding: 0 1em;
+	background: none;
+}
+.category-blog #content ul.row li .caption .more-link a {
+	position: relative;
+}
+.category-blog #content ul.row li .caption .more-link a:after {
+	position: absolute;
+	right: 0;
+	bottom: 0;
+	width: 0.5em;
+	height: 1.2em;
+	color: #FFF;
+	content: "";
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	padding-left: 0;
+	padding-right: 0.4em;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 3em;
+	text-indent: 0;
+}
+
+.category-blog #content ul.row li.has-post-thumbnail .caption {
+	filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=1);
+	opacity: 1;
+}
+.category-blog #content ul.row li.has-post-thumbnail:hover .caption {
+	filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+	opacity: 0;
+	-moz-transition-duration: 0.7s;
+	-o-transition-duration: 0.7s;
+	-webkit-transition-duration: 0.7s;
+	transition-duration: 0.7s;
+}
+.category-blog #content ul.row li.sticky {
+	position: relative;
+}
+.category-blog #content ul.row li.sticky .caption {
+	filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
+	opacity: 0;
+}
+.category-blog #content ul.row li.sticky i {
+	position: absolute;
+	top: -3px;
+	right: -15px;
+	font-size: 12px;
+	background: #000;
+	color: #fff;
+	text-align: center;
+	width: 50px;
+	padding: 3px;
+	-moz-transform: rotate(45deg);
+	-ms-transform: rotate(45deg);
+	-webkit-transform: rotate(45deg);
+	transform: rotate(45deg);
+}
+.category-blog #content ul.row li.sticky i:before {
+	content: "";
+	display: inline-block;
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	line-height: 1;
+	padding-left: 0;
+	padding-right: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+.category-blog #content .pagination {
+	padding-left: 20px;
+}
+
+

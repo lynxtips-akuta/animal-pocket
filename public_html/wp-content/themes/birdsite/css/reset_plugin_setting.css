@@ -1,0 +1,33 @@
+/* Article SNS Reset CSS */
+div.sharedaddy h3.sd-title:before {
+	content: none;
+}
+
+div.sharedaddy h3.sd-title {
+	line-height: 1.8;
+	font-size: .8rem;
+}
+
+/* Common Footer SNS Area Reset CSS */
+.widget ul li.zoom-social_icons-list__item {
+	border-top: none;
+	padding: 0;
+	text-indent: 0;
+}
+
+.widget ul li.zoom-social_icons-list__item:before {
+	content: none;
+}
+
+/* JetPack Reset CSS */
+#jp-relatedposts h3.jp-relatedposts-headline {
+	line-height: 1.8;
+	font-size: .8rem;
+	font-weight: normal;
+	margin: 0 0 1rem;
+}
+
+#jp-relatedposts h3.jp-relatedposts-headline em::before {
+	border-top: none;
+	content: none;
+}

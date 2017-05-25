@@ -8,7 +8,7 @@
  */
 ?>
 
-<?php if ( is_home() ) : /* Display Excerpts for Home */ ?>
+<?php if ( is_home() || is_category('blog') ) : /* Display Excerpts for Home */ ?>
 
 	<li id="post-<?php the_ID(); ?>" <?php post_class( ); ?>>
 		<?php the_post_thumbnail( 'birdsite' ); ?>

@@ -8,17 +8,6 @@
  */
 get_header(); ?>
 
-<?php if (is_category('blog')): ?>
-
-<ul id="thumbnails" class="row">
-	<?php while ( have_posts() ) : the_post(); ?>
-		<?php get_template_part( 'content', get_post_format() ); ?>
-	<?php endwhile; ?>
-</ul>
-
-<?php the_posts_pagination( array( 'mid_size' => 3 ) ); ?>
-
-<?php else: ?>
 <article class="hentry">
 
 	<header class="entry-header">
@@ -61,6 +50,5 @@ get_header(); ?>
 		<p><?php _e( 'Sorry, no posts matched your criteria.', 'birdsite' ); ?></p>
 	<?php endif; ?>
 </article>
-<?php endif; ?>
 
 <?php get_footer(); ?>

@@ -578,34 +578,6 @@ body {
         -moz-osx-font-smoothing: grayscale; }
 
 
-
-/*  Contens Shop information add 2016.10.6 */
-  #content dl {
-    width: 100%;
-    overflow:hidden;
-    background-color:#f9fede;
-    border:1px dotted #ccc;
-    border-top:none; }
-    #content dl dt {
-      width: 23%;
-      clear:left;
-      float:left;
-      white-space: nowrap;
-      background-color:#f9fede;
-      padding:0.2rem 0.5rem;
-      border-top:1px dotted #ccc; }
-    #content dl dd {
-      padding:0.2rem 0.5rem;
-      margin-left:23%;
-      margin-right:0;
-      margin-bottom:0;
-      background-color:#fff;
-      border-left:1px dotted #ccc;
-      border-top:1px dotted #ccc; }
-    #content dl dd:after {
-      clear:left; }
-
-
 /*  Home Thumbnails */
 .home #content ul.row {
   padding: 0;

@@ -530,3 +530,128 @@ function birdsite_post_image_html( $html, $post_id, $post_image_id, $size, $attr
 	return $html;
 }
 add_filter( 'post_thumbnail_html', 'birdsite_post_image_html', 10, 5 );
+
+
+//////////////////////////////////////////////////////
+// Category CSS Setting
+//  add 2017.05.19 akuta
+
+// 投稿に付けられたカテゴリーが、指定されたカテゴリーの子孫カテゴリに含まれるかテスト
+function post_is_in_descendant_category( $cats, $_post = null ) {
+	foreach ( (array) $cats as $cat ) {
+		// get_term_children() accepts integer ID only
+		$descendants = get_term_children( (int) $cat, 'category');
+		if ( $descendants && in_category( $descendants, $_post ) )
+			return true;
+	}
+	return false;
+}
+
+function register_style() {
+	wp_register_style('reset_plugin', get_bloginfo('template_directory').'/css/reset_plugin_setting.css');
+	wp_register_style('cafe_diary', get_bloginfo('template_directory').'/css/cafe_diary.css');
+	wp_register_style('blog_top', get_bloginfo('template_directory').'/css/blog_top.css');
+	//wp_register_style('home', get_bloginfo('template_directory').'/css/test_aaa.css');
+	//wp_register_style('single', get_bloginfo('template_directory').'/css/single.css');
+	//wp_register_style('page', get_bloginfo('template_directory').'/css/page.css');
+}
+ 
+function plus_stylesheet() {
+	register_style();
+
+	// Plugin Css Reset
+	wp_enqueue_style('reset_plugin');
+
+	if (in_category('blog') || post_is_in_descendant_category( get_term_by( 'slug', 'blog', 'category' ))) {
+		wp_enqueue_style('blog_top');
+		wp_enqueue_style('cafe_diary');
+	}
+
+
+
+	// for TopPage
+	if (is_home()){
+		//wp_enqueue_style('home');
+	}
+	// for toko Page
+	elseif (is_single()) {
+		//wp_enqueue_style('single');
+	}
+	// for Cafe Blog
+	elseif (in_category('blog')) {
+		//wp_enqueue_style('cafe_diary');
+	}
+	// for FixedPage
+	elseif (is_page()) {
+		//wp_enqueue_style('page');
+	}
+}
+add_action('wp_print_styles', 'plus_stylesheet');
+
+
+//////////////////////////////////////////////////////
+// Add Custom Post Type
+//  add 2017.05.25 akuta
+
+function create_post_type() {
+	$labels = array(
+		'all_items' => '動物カフェ情報一覧'
+	);
+
+	$customSupports = array(
+		//投稿編集画面内の機能を引き出す
+		'title',
+		'editor',
+		'author',
+		'thumbnail',
+		'custom-fields'
+	);
+	
+	$customPostArgs = array(
+		'label' => '動物カフェ情報',
+		'labels' => $labels,
+		'public' => true,
+		'has_archive' => true,
+		'menu_position' => 5,
+		'supports' => $customSupports
+	);
+
+	// add Post
+	register_post_type( 'cafe_info', $customPostArgs );
+
+
+	// add Taxonomy Category type
+	$catlabels = array(
+		'all_items' => 'カフェ情報カテゴリ一覧',
+		'add_new_item' => '新規カテゴリを追加'
+	);
+
+	register_taxonomy(
+		'cafe_info_cat',
+		'cafe_info',
+		array(
+			'label' => 'カフェ情報カテゴリ',
+			'labels' => $catlabels,
+			'hierarchical' => true
+		)
+	);
+
+
+	// add Taxonomy Tag type
+	$taglabels = array(
+		'all_items' => 'カフェ情報タグ一覧',
+		'add_new_item' => '新規タグを追加'
+	);
+
+	register_taxonomy(
+		'cafe_info_tag',
+		'cafe_info',
+		array(
+			'label' => 'カフェ情報タグ',
+			'labels' => $taglabels,
+			'hierarchical' => false
+		)
+	);
+}
+add_action( 'init', 'create_post_type' );
+
